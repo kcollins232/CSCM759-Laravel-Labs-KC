@@ -13,3 +13,10 @@ Route::get('/home', function () {
 Route::get('/greet/{name}', function ($name) {
     return view('greet', ['name' => $name]);
 });
+
+use App\Http\Controllers\AxolotlSearchController;
+
+Route::get('/axolotls/search', [AxolotlSearchController::class, 'index'])->name('axolotls.search');
+
+Route::get('/axolotls/autocomplete', [AxolotlSearchController::class, 'autocomplete'])->name('axolotls.autocomplete');
+
