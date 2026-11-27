@@ -20,3 +20,16 @@ Route::get('/axolotls/search', [AxolotlSearchController::class, 'index'])->name(
 
 Route::get('/axolotls/autocomplete', [AxolotlSearchController::class, 'autocomplete'])->name('axolotls.autocomplete');
 
+use App\Http\Controllers\AxolotlController;
+
+Route::get('/axolotls', [AxolotlController::class, 'index'])->name('axolotls.index');
+
+Route::get('/axolotls/{axolotl}', [AxolotlController::class, 'show'])->name('axolotls.show');
+
+
+use App\Http\Controllers\StoryController;
+
+Route::get('/axolotls/{axolotl}/stories/create', [StoryController::class, 'create'])->name('stories.create');
+
+Route::post('/axolotls/{axolotl}/stories', [StoryController::class, 'store'])->name('stories.store');
+
